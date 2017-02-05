@@ -54,10 +54,9 @@ void LedPwmInit() {
  * Set PWM Frequency in Hz
  * */
 void SetPwmFreq(int freq) {
-	TIM_PrescalerConfig(TIM2, (uint16_t) ((SystemCoreClock /(200* freq))) - 1,
-	TIM_PSCReloadMode_Immediate);
+	TIM_PrescalerConfig(TIM2, (uint16_t) ((SystemCoreClock / (200 * freq))) - 1,
+	TIM_PSCReloadMode_Update);
 	TIM2->CCR1 = 100;
-
 }
 
 /*

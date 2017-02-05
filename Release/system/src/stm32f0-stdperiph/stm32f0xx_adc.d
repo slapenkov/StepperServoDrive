@@ -1,4 +1,5 @@
-src/Joistick.o: ../src/Joistick.c ../include/Joistick.h \
+system/src/stm32f0-stdperiph/stm32f0xx_adc.o: \
+ ../system/src/stm32f0-stdperiph/stm32f0xx_adc.c \
  ../system/include/stm32f0-stdperiph/stm32f0xx_adc.h \
  ../system/include/cmsis/stm32f0xx.h ../system/include/cmsis/core_cm0.h \
  ../system/include/cmsis/core_cmInstr.h \
@@ -27,8 +28,6 @@ src/Joistick.o: ../src/Joistick.c ../include/Joistick.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_usart.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_wwdg.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_misc.h
-
-../include/Joistick.h:
 
 ../system/include/stm32f0-stdperiph/stm32f0xx_adc.h:
 

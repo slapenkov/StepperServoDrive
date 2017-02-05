@@ -74,8 +74,8 @@ int main(int argc, char* argv[]) {
 
 	//pwm generator initialization
 	LedPwmInit();
-	SetPwmFreq(10000);
-	timer_sleep(5000);
+	//SetPwmFreq(10000);
+	//timer_sleep(5000);
 	OffPwm();
 	trace_printf("Pulse generator initialized");
 
@@ -83,17 +83,21 @@ int main(int argc, char* argv[]) {
 
 	// Infinite loop
 	while (1) {
-		blink_led_on();
-		timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
+		/*blink_led_on();
+		 timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
 
-		blink_led_off();
-		timer_sleep(BLINK_OFF_TICKS);
+		 blink_led_off();
+		 timer_sleep(BLINK_OFF_TICKS);*/
 
 		++seconds;
 
 		// Count seconds on the trace device.
 		trace_printf("Second %u\n", seconds);
-		trace_printf("X: %u \n", JoystickGetX());
+
+		uint16_t freq = 200 + JoystickGetX();
+		trace_printf("X: %u \n", freq);
+		SetPwmFreq(freq);
+		timer_sleep(1);
 	}
 	// Infinite loop, never return.
 }

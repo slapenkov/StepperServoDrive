@@ -34,10 +34,10 @@ void AdcInit() {
 
 	/* Configure the ADC1 in continuous mode with a resolution equal to 12 bits  */
 	ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
-	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
+	ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
 	ADC_InitStructure.ADC_ExternalTrigConvEdge =
-	ADC_ExternalTrigConvEdge_Rising;
-	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC4;
+	ADC_ExternalTrigConvEdge_None;
+	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_TRGO;
 	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
 	ADC_InitStructure.ADC_ScanDirection = ADC_ScanDirection_Upward;
 	ADC_Init(ADC1, &ADC_InitStructure);
@@ -63,6 +63,8 @@ void AdcInit() {
  *
  * */
 uint16_t JoystickGetX() {
+
+	ADC_StartOfConversion(ADC1);
 
 	/* Test EOC flag */
 	while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET)

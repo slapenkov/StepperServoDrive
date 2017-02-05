@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../system/src/stm32f0-stdperiph/stm32f0xx_adc.c \
 ../system/src/stm32f0-stdperiph/stm32f0xx_gpio.c \
 ../system/src/stm32f0-stdperiph/stm32f0xx_rcc.c \
 ../system/src/stm32f0-stdperiph/stm32f0xx_tim.c 
 
 C_DEPS += \
+./system/src/stm32f0-stdperiph/stm32f0xx_adc.d \
 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.d \
 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.d \
 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.d 
 
 OBJS += \
+./system/src/stm32f0-stdperiph/stm32f0xx_adc.o \
 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o \
 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o \
 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o 
