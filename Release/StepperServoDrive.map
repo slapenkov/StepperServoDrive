@@ -10,8 +10,6 @@ c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi
                               ./system/src/newlib/_sbrk.o (__errno)
 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
                               c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o) (_impure_ptr)
-c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
-                              ./src/LedPwm.o (memset)
 
 Allocating common symbols
 Common symbol       size              file
@@ -136,8 +134,6 @@ Discarded input sections
                 0x00000000       0xe8 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
  .text.TIM_TimeBaseStructInit
                 0x00000000       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
- .text.TIM_PrescalerConfig
-                0x00000000        0x6 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
  .text.TIM_CounterModeConfig
                 0x00000000        0xc ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
  .text.TIM_SetCounter
@@ -151,8 +147,6 @@ Discarded input sections
  .text.TIM_UpdateDisableConfig
                 0x00000000       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
  .text.TIM_UpdateRequestConfig
-                0x00000000       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
- .text.TIM_ARRPreloadConfig
                 0x00000000       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
  .text.TIM_SelectOnePulseMode
                 0x00000000       0x10 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
@@ -458,9 +452,6 @@ Discarded input sections
                 0x00000000        0x4 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
                 0x00000000       0x2c c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
- .text          0x00000000        0x0 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
- .data          0x00000000        0x0 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
- .bss           0x00000000        0x0 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
 
 Memory Configuration
 
@@ -590,10 +581,10 @@ END GROUP
 
 .inits          0x080001b8       0x28
                 0x080001b8                __data_regions_array_start = .
-                0x080001b8        0x4 LONG 0x8000820 LOADADDR (.data)
+                0x080001b8        0x4 LONG 0x800087c LOADADDR (.data)
                 0x080001bc        0x4 LONG 0x20000000 ADDR (.data)
                 0x080001c0        0x4 LONG 0x2000001c (ADDR (.data) + SIZEOF (.data))
-                0x080001c4        0x4 LONG 0x8000820 LOADADDR (.data_CCMRAM)
+                0x080001c4        0x4 LONG 0x800087c LOADADDR (.data_CCMRAM)
                 0x080001c8        0x4 LONG 0x0 ADDR (.data_CCMRAM)
                 0x080001cc        0x4 LONG 0x0 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x080001d0                __data_regions_array_end = .
@@ -625,7 +616,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x080001e0      0x640
+.text           0x080001e0      0x69c
  *(.text .text.*)
  .text.GPIO_Init
                 0x080001e0       0x78 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
@@ -648,66 +639,76 @@ END GROUP
  .text.TIM_TimeBaseInit
                 0x080002b4       0x78 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
                 0x080002b4                TIM_TimeBaseInit
- .text.TIM_Cmd  0x0800032c       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
-                0x0800032c                TIM_Cmd
- *fill*         0x0800033e        0x2 
+ .text.TIM_PrescalerConfig
+                0x0800032c        0x6 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
+                0x0800032c                TIM_PrescalerConfig
+ .text.TIM_ARRPreloadConfig
+                0x08000332       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
+                0x08000332                TIM_ARRPreloadConfig
+ .text.TIM_Cmd  0x08000344       0x12 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
+                0x08000344                TIM_Cmd
+ *fill*         0x08000356        0x2 
  .text.TIM_OC1Init
-                0x08000340       0x7c ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
-                0x08000340                TIM_OC1Init
+                0x08000358       0x7c ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
+                0x08000358                TIM_OC1Init
  .text.TIM_OC1PreloadConfig
-                0x080003bc        0xc ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
-                0x080003bc                TIM_OC1PreloadConfig
- .text._exit    0x080003c8        0x6 ./system/src/newlib/_exit.o
-                0x080003c8                _exit
- *fill*         0x080003ce        0x2 
+                0x080003d4        0xc ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
+                0x080003d4                TIM_OC1PreloadConfig
+ .text._exit    0x080003e0        0x6 ./system/src/newlib/_exit.o
+                0x080003e0                _exit
+ *fill*         0x080003e6        0x2 
  .text.__initialize_args
-                0x080003d0       0x10 ./system/src/newlib/_syscalls.o
-                0x080003d0                __initialize_args
+                0x080003e8       0x10 ./system/src/newlib/_syscalls.o
+                0x080003e8                __initialize_args
  .text.__initialize_hardware_early
-                0x080003e0        0x8 ./system/src/cortexm/_initialize_hardware.o
-                0x080003e0                __initialize_hardware_early
+                0x080003f8        0x8 ./system/src/cortexm/_initialize_hardware.o
+                0x080003f8                __initialize_hardware_early
  .text.__initialize_hardware
-                0x080003e8        0x8 ./system/src/cortexm/_initialize_hardware.o
-                0x080003e8                __initialize_hardware
+                0x08000400        0x8 ./system/src/cortexm/_initialize_hardware.o
+                0x08000400                __initialize_hardware
  .text.__reset_hardware
-                0x080003f0       0x1c ./system/src/cortexm/_reset_hardware.o
-                0x080003f0                __reset_hardware
+                0x08000408       0x1c ./system/src/cortexm/_reset_hardware.o
+                0x08000408                __reset_hardware
  .text.SystemInit
-                0x0800040c       0xf4 ./system/src/cmsis/system_stm32f0xx.o
-                0x0800040c                SystemInit
+                0x08000424       0xf4 ./system/src/cmsis/system_stm32f0xx.o
+                0x08000424                SystemInit
  .text.SystemCoreClockUpdate
-                0x08000500       0x68 ./system/src/cmsis/system_stm32f0xx.o
-                0x08000500                SystemCoreClockUpdate
+                0x08000518       0x68 ./system/src/cmsis/system_stm32f0xx.o
+                0x08000518                SystemCoreClockUpdate
  .text.blink_led_init
-                0x08000568       0x38 ./src/BlinkLed.o
-                0x08000568                blink_led_init
+                0x08000580       0x38 ./src/BlinkLed.o
+                0x08000580                blink_led_init
  .text.LedPwmInit
-                0x080005a0       0x98 ./src/LedPwm.o
-                0x080005a0                LedPwmInit
+                0x080005b8       0x9c ./src/LedPwm.o
+                0x080005b8                LedPwmInit
+ .text.SetPwmFreq
+                0x08000654       0x2c ./src/LedPwm.o
+                0x08000654                SetPwmFreq
+ .text.OffPwm   0x08000680        0xa ./src/LedPwm.o
+                0x08000680                OffPwm
+ *fill*         0x0800068a        0x2 
  .text.timer_start
-                0x08000638       0x44 ./src/Timer.o
-                0x08000638                timer_start
+                0x0800068c       0x44 ./src/Timer.o
+                0x0800068c                timer_start
  .text.timer_sleep
-                0x0800067c       0x10 ./src/Timer.o
-                0x0800067c                timer_sleep
+                0x080006d0       0x10 ./src/Timer.o
+                0x080006d0                timer_sleep
  .text.timer_tick
-                0x0800068c       0x14 ./src/Timer.o
-                0x0800068c                timer_tick
+                0x080006e0       0x14 ./src/Timer.o
+                0x080006e0                timer_tick
  .text.SysTick_Handler
-                0x080006a0        0x8 ./src/Timer.o
-                0x080006a0                SysTick_Handler
+                0x080006f4        0x8 ./src/Timer.o
+                0x080006f4                SysTick_Handler
  .text.startup.main
-                0x080006a8       0x44 ./src/main.o
-                0x080006a8                main
- .text          0x080006ec      0x120 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
-                0x080006ec                __aeabi_uidiv
-                0x080006ec                __udivsi3
-                0x080007f8                __aeabi_uidivmod
- .text          0x0800080c        0x4 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x0800080c                __aeabi_idiv0
-                0x0800080c                __aeabi_ldiv0
- .text.memset   0x08000810       0x10 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
-                0x08000810                memset
+                0x080006fc       0x5c ./src/main.o
+                0x080006fc                main
+ .text          0x08000758      0x120 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x08000758                __aeabi_uidiv
+                0x08000758                __udivsi3
+                0x08000864                __aeabi_uidivmod
+ .text          0x08000878        0x4 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x08000878                __aeabi_idiv0
+                0x08000878                __aeabi_ldiv0
  *(.rodata .rodata.* .constdata .constdata.*)
  *(vtable)
  *(.eh_frame*)
@@ -716,37 +717,37 @@ END GROUP
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08000820        0x0
+.vfp11_veneer   0x0800087c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08000820        0x0
+.v4_bx          0x0800087c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08000820        0x0
+.iplt           0x0800087c        0x0
  .iplt          0x00000000        0x0 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
 
-.rel.dyn        0x08000820        0x0
+.rel.dyn        0x0800087c        0x0
  .rel.iplt      0x00000000        0x0 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08000820                . = ALIGN (0x4)
-                0x08000820                __exidx_start = .
+                0x0800087c                . = ALIGN (0x4)
+                0x0800087c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08000820                __exidx_end = .
-                0x08000820                . = ALIGN (0x4)
-                0x08000820                _etext = .
-                0x08000820                __etext = .
+                0x0800087c                __exidx_end = .
+                0x0800087c                . = ALIGN (0x4)
+                0x0800087c                _etext = .
+                0x0800087c                __etext = .
 
-.data_CCMRAM    0x00000000        0x0 load address 0x08000820
+.data_CCMRAM    0x00000000        0x0 load address 0x0800087c
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x00000000                . = ALIGN (0x4)
-                0x08000820                _sidata = LOADADDR (.data)
+                0x0800087c                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x1c load address 0x08000820
+.data           0x20000000       0x1c load address 0x0800087c
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -765,7 +766,7 @@ END GROUP
                 0x2000001c                _edata = .
                 0x2000001c                __data_end__ = .
 
-.igot.plt       0x2000001c        0x0 load address 0x0800083c
+.igot.plt       0x2000001c        0x0 load address 0x08000898
  .igot.plt      0x00000000        0x0 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
 
 .bss_CCMRAM     0x00000000        0x0
@@ -902,8 +903,6 @@ END GROUP
                 0x000002df       0x1e c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
  .ARM.attributes
                 0x000002fd       0x1e c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_dvmd_tls.o)
- .ARM.attributes
-                0x0000031b       0x2c c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
 
 .debug
  *(.debug)
@@ -917,7 +916,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x6e0
+.debug_aranges  0x00000000      0x6f0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x80 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
@@ -944,16 +943,16 @@ END GROUP
  .debug_aranges
                 0x00000648       0x20 ./src/BlinkLed.o
  .debug_aranges
-                0x00000668       0x20 ./src/LedPwm.o
+                0x00000668       0x30 ./src/LedPwm.o
  .debug_aranges
-                0x00000688       0x38 ./src/Timer.o
+                0x00000698       0x38 ./src/Timer.o
  .debug_aranges
-                0x000006c0       0x20 ./src/main.o
+                0x000006d0       0x20 ./src/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x51b6
+.debug_info     0x00000000     0x526a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x683 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
  .debug_info    0x00000683      0xa69 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o
@@ -967,11 +966,11 @@ END GROUP
  .debug_info    0x00003bbb      0x2f2 ./system/src/cmsis/system_stm32f0xx.o
  .debug_info    0x00003ead       0xcd ./system/src/cmsis/vectors_stm32f0xx.o
  .debug_info    0x00003f7a      0x355 ./src/BlinkLed.o
- .debug_info    0x000042cf      0x758 ./src/LedPwm.o
- .debug_info    0x00004a27      0x486 ./src/Timer.o
- .debug_info    0x00004ead      0x309 ./src/main.o
+ .debug_info    0x000042cf      0x7bd ./src/LedPwm.o
+ .debug_info    0x00004a8c      0x486 ./src/Timer.o
+ .debug_info    0x00004f12      0x358 ./src/main.o
 
-.debug_abbrev   0x00000000     0x13ed
+.debug_abbrev   0x00000000     0x1432
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x1d4 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
  .debug_abbrev  0x000001d4      0x230 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o
@@ -985,11 +984,11 @@ END GROUP
  .debug_abbrev  0x00000bfa      0x14e ./system/src/cmsis/system_stm32f0xx.o
  .debug_abbrev  0x00000d48       0x9a ./system/src/cmsis/vectors_stm32f0xx.o
  .debug_abbrev  0x00000de2      0x159 ./src/BlinkLed.o
- .debug_abbrev  0x00000f3b      0x160 ./src/LedPwm.o
- .debug_abbrev  0x0000109b      0x1bb ./src/Timer.o
- .debug_abbrev  0x00001256      0x197 ./src/main.o
+ .debug_abbrev  0x00000f3b      0x196 ./src/LedPwm.o
+ .debug_abbrev  0x000010d1      0x1bb ./src/Timer.o
+ .debug_abbrev  0x0000128c      0x1a6 ./src/main.o
 
-.debug_line     0x00000000     0x1e14
+.debug_line     0x00000000     0x1e5c
  *(.debug_line)
  .debug_line    0x00000000      0x253 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
  .debug_line    0x00000253      0x51b ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o
@@ -1003,11 +1002,11 @@ END GROUP
  .debug_line    0x000017c2      0x123 ./system/src/cmsis/system_stm32f0xx.o
  .debug_line    0x000018e5       0x5d ./system/src/cmsis/vectors_stm32f0xx.o
  .debug_line    0x00001942      0x12b ./src/BlinkLed.o
- .debug_line    0x00001a6d      0x134 ./src/LedPwm.o
- .debug_line    0x00001ba1      0x141 ./src/Timer.o
- .debug_line    0x00001ce2      0x132 ./src/main.o
+ .debug_line    0x00001a6d      0x17b ./src/LedPwm.o
+ .debug_line    0x00001be8      0x141 ./src/Timer.o
+ .debug_line    0x00001d29      0x133 ./src/main.o
 
-.debug_frame    0x00000000      0xde0
+.debug_frame    0x00000000      0xde8
  *(.debug_frame)
  .debug_frame   0x00000000      0x108 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
  .debug_frame   0x00000108      0x2c4 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o
@@ -1021,13 +1020,12 @@ END GROUP
  .debug_frame   0x00000c58       0x40 ./system/src/cmsis/system_stm32f0xx.o
  .debug_frame   0x00000c98       0x20 ./system/src/cmsis/vectors_stm32f0xx.o
  .debug_frame   0x00000cb8       0x30 ./src/BlinkLed.o
- .debug_frame   0x00000ce8       0x30 ./src/LedPwm.o
- .debug_frame   0x00000d18       0x60 ./src/Timer.o
- .debug_frame   0x00000d78       0x28 ./src/main.o
- .debug_frame   0x00000da0       0x20 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x00000dc0       0x20 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000ce8       0x58 ./src/LedPwm.o
+ .debug_frame   0x00000d40       0x60 ./src/Timer.o
+ .debug_frame   0x00000da0       0x28 ./src/main.o
+ .debug_frame   0x00000dc8       0x20 c:/toolsarm/gcc_arm/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m\libgcc.a(_udivsi3.o)
 
-.debug_str      0x00000000     0x1de8
+.debug_str      0x00000000     0x1df8
  *(.debug_str)
  .debug_str     0x00000000      0x4ab ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
                                 0x4e8 (size before relaxing)
@@ -1053,14 +1051,14 @@ END GROUP
                                 0x1d0 (size before relaxing)
  .debug_str     0x00001a69       0x42 ./src/BlinkLed.o
                                 0x3b7 (size before relaxing)
- .debug_str     0x00001aab       0x55 ./src/LedPwm.o
-                                0x5cf (size before relaxing)
- .debug_str     0x00001b00      0x2b1 ./src/Timer.o
+ .debug_str     0x00001aab       0x65 ./src/LedPwm.o
+                                0x618 (size before relaxing)
+ .debug_str     0x00001b10      0x2b1 ./src/Timer.o
                                 0x4b3 (size before relaxing)
- .debug_str     0x00001db1       0x37 ./src/main.o
-                                0x2b0 (size before relaxing)
+ .debug_str     0x00001dc1       0x37 ./src/main.o
+                                0x2c2 (size before relaxing)
 
-.debug_loc      0x00000000     0x2ac6
+.debug_loc      0x00000000     0x2ae7
  *(.debug_loc)
  .debug_loc     0x00000000      0x32a ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
  .debug_loc     0x0000032a      0x8c0 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o
@@ -1069,8 +1067,9 @@ END GROUP
  .debug_loc     0x000026bb      0x236 ./system/src/newlib/_startup.o
  .debug_loc     0x000028f1       0x63 ./system/src/newlib/_syscalls.o
  .debug_loc     0x00002954       0xe7 ./system/src/cmsis/system_stm32f0xx.o
- .debug_loc     0x00002a3b       0x49 ./src/Timer.o
- .debug_loc     0x00002a84       0x42 ./src/main.o
+ .debug_loc     0x00002a3b       0x21 ./src/LedPwm.o
+ .debug_loc     0x00002a5c       0x49 ./src/Timer.o
+ .debug_loc     0x00002aa5       0x42 ./src/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1088,7 +1087,7 @@ END GROUP
  *(.debug_varnames)
 OUTPUT(StepperServoDrive.elf elf32-littlearm)
 
-.debug_ranges   0x00000000      0x688
+.debug_ranges   0x00000000      0x698
  .debug_ranges  0x00000000       0x70 ./system/src/stm32f0-stdperiph/stm32f0xx_gpio.o
  .debug_ranges  0x00000070      0x150 ./system/src/stm32f0-stdperiph/stm32f0xx_rcc.o
  .debug_ranges  0x000001c0      0x330 ./system/src/stm32f0-stdperiph/stm32f0xx_tim.o
@@ -1101,6 +1100,6 @@ OUTPUT(StepperServoDrive.elf elf32-littlearm)
  .debug_ranges  0x000005d8       0x30 ./system/src/cmsis/system_stm32f0xx.o
  .debug_ranges  0x00000608       0x10 ./system/src/cmsis/vectors_stm32f0xx.o
  .debug_ranges  0x00000618       0x10 ./src/BlinkLed.o
- .debug_ranges  0x00000628       0x10 ./src/LedPwm.o
- .debug_ranges  0x00000638       0x40 ./src/Timer.o
- .debug_ranges  0x00000678       0x10 ./src/main.o
+ .debug_ranges  0x00000628       0x20 ./src/LedPwm.o
+ .debug_ranges  0x00000648       0x40 ./src/Timer.o
+ .debug_ranges  0x00000688       0x10 ./src/main.o

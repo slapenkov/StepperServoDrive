@@ -12,6 +12,7 @@
 #include "Timer.h"
 #include "BlinkLed.h"
 #include "LedPwm.h"
+#include "Joystick.h"
 
 // ----------------------------------------------------------------------------
 //
@@ -56,41 +57,45 @@
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
 
-int
-main(int argc, char* argv[])
-{
-  // Send a greeting to the trace device (skipped on Release).
-  trace_puts("Hello ARM World!");
+int main(int argc, char* argv[]) {
+	// Send a greeting to the trace device (skipped on Release).
+	trace_puts("Hello ARM World!");
 
-  // At this stage the system clock should have already been configured
-  // at high speed.
-  trace_printf("System clock: %u Hz\n", SystemCoreClock);
+	// At this stage the system clock should have already been configured
+	// at high speed.
+	trace_printf("System clock: %u Hz\n", SystemCoreClock);
 
-  timer_start();
+	timer_start();
 
-  blink_led_init();
-  
-  //pwm generator initialization
-  LedPwmInit();
-  trace_printf("Pulse generator initialized");
+	blink_led_init();
 
-  uint32_t seconds = 0;
+	//adc configure
+	AdcInit();
 
-  // Infinite loop
-  while (1)
-    {
-      blink_led_on();
-      timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
+	//pwm generator initialization
+	LedPwmInit();
+	SetPwmFreq(10000);
+	timer_sleep(5000);
+	OffPwm();
+	trace_printf("Pulse generator initialized");
 
-      blink_led_off();
-      timer_sleep(BLINK_OFF_TICKS);
+	uint32_t seconds = 0;
 
-      ++seconds;
+	// Infinite loop
+	while (1) {
+		blink_led_on();
+		timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
 
-      // Count seconds on the trace device.
-      trace_printf("Second %u\n", seconds);
-    }
-  // Infinite loop, never return.
+		blink_led_off();
+		timer_sleep(BLINK_OFF_TICKS);
+
+		++seconds;
+
+		// Count seconds on the trace device.
+		trace_printf("Second %u\n", seconds);
+		trace_printf("X: %u \n", JoystickGetX());
+	}
+	// Infinite loop, never return.
 }
 
 #pragma GCC diagnostic pop

@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/BlinkLed.c \
+../src/Joystick.c \
 ../src/LedPwm.c \
 ../src/Timer.c \
 ../src/_write.c \
@@ -12,6 +13,7 @@ C_SRCS += \
 
 C_DEPS += \
 ./src/BlinkLed.d \
+./src/Joystick.d \
 ./src/LedPwm.d \
 ./src/Timer.d \
 ./src/_write.d \
@@ -19,6 +21,7 @@ C_DEPS += \
 
 OBJS += \
 ./src/BlinkLed.o \
+./src/Joystick.o \
 ./src/LedPwm.o \
 ./src/Timer.o \
 ./src/_write.o \

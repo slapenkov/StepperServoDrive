@@ -1,12 +1,10 @@
-src/main.o: ../src/main.c ../system/include/diag/Trace.h \
- ../include/Timer.h ../system/include/cmsis/cmsis_device.h \
+src/Joistick.o: ../src/Joistick.c ../include/Joistick.h \
+ ../system/include/stm32f0-stdperiph/stm32f0xx_adc.h \
  ../system/include/cmsis/stm32f0xx.h ../system/include/cmsis/core_cm0.h \
  ../system/include/cmsis/core_cmInstr.h \
  ../system/include/cmsis/cmsis_gcc.h \
  ../system/include/cmsis/core_cmFunc.h \
  ../system/include/cmsis/system_stm32f0xx.h ../include/stm32f0xx_conf.h \
- ../system/include/stm32f0-stdperiph/stm32f0xx_adc.h \
- ../system/include/cmsis/stm32f0xx.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_can.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_cec.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_crc.h \
@@ -28,14 +26,11 @@ src/main.o: ../src/main.c ../system/include/diag/Trace.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_tim.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_usart.h \
  ../system/include/stm32f0-stdperiph/stm32f0xx_wwdg.h \
- ../system/include/stm32f0-stdperiph/stm32f0xx_misc.h \
- ../include/BlinkLed.h ../include/LedPwm.h ../include/Joystick.h
+ ../system/include/stm32f0-stdperiph/stm32f0xx_misc.h
 
-../system/include/diag/Trace.h:
+../include/Joistick.h:
 
-../include/Timer.h:
-
-../system/include/cmsis/cmsis_device.h:
+../system/include/stm32f0-stdperiph/stm32f0xx_adc.h:
 
 ../system/include/cmsis/stm32f0xx.h:
 
@@ -50,10 +45,6 @@ src/main.o: ../src/main.c ../system/include/diag/Trace.h \
 ../system/include/cmsis/system_stm32f0xx.h:
 
 ../include/stm32f0xx_conf.h:
-
-../system/include/stm32f0-stdperiph/stm32f0xx_adc.h:
-
-../system/include/cmsis/stm32f0xx.h:
 
 ../system/include/stm32f0-stdperiph/stm32f0xx_can.h:
 
@@ -98,9 +89,3 @@ src/main.o: ../src/main.c ../system/include/diag/Trace.h \
 ../system/include/stm32f0-stdperiph/stm32f0xx_wwdg.h:
 
 ../system/include/stm32f0-stdperiph/stm32f0xx_misc.h:
-
-../include/BlinkLed.h:
-
-../include/LedPwm.h:
-
-../include/Joystick.h:
